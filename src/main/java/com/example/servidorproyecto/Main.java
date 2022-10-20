@@ -5,12 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
+
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -18,6 +21,19 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+
+        ArbolBinario arbol=new ArbolBinario();
+
+        arbol.insertar(4,"Hola");
+        arbol.insertar(8,"Prueba");
+        arbol.insertar(1,"Datos");
+        arbol.insertar(9,"Proyecto");
+        arbol.insertar(7,"Xd");
+
+        arbol.recorrer(arbol.root);
+
+        Conexion comu= new Conexion();
+        comu.iniciar();
         launch();
     }
 }
