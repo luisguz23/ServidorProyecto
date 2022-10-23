@@ -21,19 +21,23 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Conexion comu= new Conexion();
+        comu.iniciar();
 
         ArbolBinario arbol=new ArbolBinario();
 
         arbol.insertar(4,"Hola");
         arbol.insertar(8,"Prueba");
-        arbol.insertar(1,"Datos");
+        arbol.insertar(1,"Hola");
         arbol.insertar(9,"Proyecto");
         arbol.insertar(7,"Xd");
 
         arbol.recorrer(arbol.root);
+        System.out.println("------------------------------");
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.Lista();
+        System.out.println("------------------------------");
 
-        Conexion comu= new Conexion();
-        comu.iniciar();
         launch();
     }
 }

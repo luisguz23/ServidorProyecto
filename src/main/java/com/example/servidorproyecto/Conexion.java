@@ -12,6 +12,7 @@ public class Conexion {
     int puerto=9000;
     DataOutputStream salida;
     BufferedReader entrada;
+    public String message;
 
     //Código tomado de: https://www.youtube.com/watch?v=tsr53-zO73o
     public void iniciar(){
@@ -22,8 +23,8 @@ public class Conexion {
             socket=server.accept();
 
             entrada=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            String message= entrada.readLine();
-            System.out.println(message);
+            message= entrada.readLine();
+            //System.out.println(message);
             salida=new DataOutputStream(socket.getOutputStream());
             salida.writeUTF("Adios Mundo");
             socket.close();
