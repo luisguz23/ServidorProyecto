@@ -1,12 +1,14 @@
 package com.example.servidorproyecto;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 class Biblioteca {
 
-    public void Lista() {
+    public void Lista() throws IOException {
+        read_File lector = new read_File();
 
         String path = "C:\\Users\\luisg\\OneDrive\\Documentos\\TEC\\2022\\Segundo semestre 2022\\Datos I\\Proyectos\\ServidorProyecto\\Biblioteca";
 
@@ -20,6 +22,8 @@ class Biblioteca {
             for ( int i = 0; i < size; i ++ ) {
 
                 System.out.println( files[ i ].toString());
+                lector.readUsingScanner(files[i]);
+
             }
         }
     }

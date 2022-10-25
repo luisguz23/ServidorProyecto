@@ -20,19 +20,28 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Conexion comu= new Conexion();
         comu.iniciar();
+        String message = comu.message;
 
         ArbolBinario arbol=new ArbolBinario();
 
-        arbol.insertar(4,"Hola");
-        arbol.insertar(8,"Prueba");
-        arbol.insertar(1,"Hola");
-        arbol.insertar(9,"Proyecto");
-        arbol.insertar(7,"Xd");
-
-        arbol.recorrer(arbol.root);
+        /*arbol.insertar("Luis");
+        arbol.insertar("Chris");
+        arbol.insertar("Zelda");
+        arbol.insertar("Cuphead");
+        arbol.insertar("Leon");*/
+        System.out.println("Recorriendo inorden:");
+        arbol.inorden();
+        System.out.println("Recorriendo postorden:");
+        arbol.postorden();
+        System.out.println("Recorriendo preorden:");
+        arbol.preorden();
+        System.out.println("Busqueda "+message+":");
+        System.out.println(arbol.existe(message)); // true
+        //System.out.println(arbol.existe("Claire")); // false
+        //System.out.println(arbol.existe("Zelda")); // true
         System.out.println("------------------------------");
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.Lista();

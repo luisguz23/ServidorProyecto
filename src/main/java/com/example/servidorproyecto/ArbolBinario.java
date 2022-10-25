@@ -2,68 +2,89 @@ package com.example.servidorproyecto;
 
 
 public class ArbolBinario {
-    Node root;
-    public ArbolBinario(){
-        root=null;
+
+    private Nodo raiz;
+    public ArbolBinario() {
 
     }
 
-    public void insertar(int i, Object str){
-        Node n= new Node(i);
-        n.contenido=str;
-
-        if (root==null){
-            root=n;
-        }
-        else{
-            Node aux = root;
-            while (aux != null){
-                n.padre=aux;
-                if(n.llave >= aux.llave){
-                    aux=aux.right;
-                }else{
-
-                    aux=aux.left;
-                }
-            }
-            if (n.llave < n.padre.llave){
-                n.padre.left=n;
-            }else{
-                n.padre.right=n;
-            }
-        }
+    public boolean existe(String busqueda) {
+        return existe(this.raiz, busqueda);
     }
-    public void recorrer(Node n){
-        Conexion conexion=new Conexion();
-        String  criterioBusqueda= conexion.message;
-        System.out.println(criterioBusqueda);
-        if (n != null){
-                recorrer(n.left);
-                System.out.println("Indice " + n.llave + " str" + n.contenido);
-                recorrer(n.right);
-            if (n.contenido=="Hola") {
-                System.out.println("Exito");
-            }else{
-                System.out.println("Error");
-            }
+
+    private boolean existe(Nodo n, String busqueda) {
+        if (n == null) {
+            return false;
+        }
+        if (n.getDato().equals(busqueda)) {
+            return true;
+        } else if (busqueda.compareTo(n.getDato()) < 0) {
+            return existe(n.getIzquierda(), busqueda);
+        } else {
+            return existe(n.getDerecha(), busqueda);
         }
 
     }
 
-   /* public Node searchNode(int key) {
-        Node node = root;
-        while (node != null) {
-            if (key == node.data) {
-                return node;
-            } else if (key < node.data) {
-                node = node.left;
+    public void insertar(String dato) {
+        if (this.raiz == null) {
+            this.raiz = new Nodo(dato);
+        } else {
+            this.insertar(this.raiz, dato);
+        }
+    }
+
+    private void insertar(Nodo padre, String dato) {
+        if (dato.compareTo(padre.getDato()) > 0) {
+            if (padre.getDerecha() == null) {
+                padre.setDerecha(new Nodo(dato));
             } else {
-                node = node.right;
+                this.insertar(padre.getDerecha(), dato);
             }
-        }*/
+        } else {
+            if (padre.getIzquierda() == null) {
+                padre.setIzquierda(new Nodo(dato));
+            } else {
+                this.insertar(padre.getIzquierda(), dato);
+            }
+        }
+    }
 
+    private void preorden(Nodo n) {
+        if (n != null) {
+            n.imprimirDato();
+            preorden(n.getIzquierda());
+            preorden(n.getDerecha());
+        }
+    }
 
+    private void inorden(Nodo n) {
+        if (n != null) {
+            inorden(n.getIzquierda());
+            n.imprimirDato();
+            inorden(n.getDerecha());
+        }
+    }
 
+    private void postorden(Nodo n) {
+        if (n != null) {
+            postorden(n.getIzquierda());
+            postorden(n.getDerecha());
+            n.imprimirDato();
+        }
+    }
 
+    public void preorden() {
+        this.preorden(this.raiz);
+    }
 
+    public void inorden() {
+        this.inorden(this.raiz);
+    }
+
+    public void postorden() {
+        this.postorden(this.raiz);
+    }
 }
+
+
