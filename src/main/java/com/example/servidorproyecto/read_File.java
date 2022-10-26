@@ -7,7 +7,7 @@ import java.util.Scanner;
 // Main class
 public class read_File {
 
-
+    public String item;
     // Method 1
     // To read the file using Scanner
     public  void readUsingScanner(String fileName)
@@ -16,6 +16,7 @@ public class read_File {
         // Again,  creating Path class object in main()
         // method
         Path path = Paths.get(fileName);
+
         String delimitadores = "[ .,;?!¡¿\'\"\\[\\]]+";
         ArbolBinario arbol = new ArbolBinario();
 
@@ -32,8 +33,9 @@ public class read_File {
             // Processing each line
             String[] line = scanner.nextLine().split(delimitadores);
 
-            for (String item : line) {
-                arbol.insertar(item);
+            for (String item_aux : line) {
+                item=item_aux;
+                //arbol.insertar(item);
                 System.out.println(item);
             }
 

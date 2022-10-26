@@ -15,7 +15,12 @@ public class Conexion {
     public String message;
 
     //Código tomado de: https://www.youtube.com/watch?v=tsr53-zO73o
+
+    /**
+     *realiza conexion entre el cliente y el servidor
+     */
     public void iniciar(){
+
 
         try {
             server=new ServerSocket(puerto);

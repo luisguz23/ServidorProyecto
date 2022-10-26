@@ -24,14 +24,16 @@ public class Main extends Application {
         Conexion comu= new Conexion();
         comu.iniciar();
         String message = comu.message;
+        read_File lecto_txt= new read_File();
+        String dato_busqueda = lecto_txt.item;
 
         ArbolBinario arbol=new ArbolBinario();
 
-        /*arbol.insertar("Luis");
+        arbol.insertar("Luis");
         arbol.insertar("Chris");
         arbol.insertar("Zelda");
         arbol.insertar("Cuphead");
-        arbol.insertar("Leon");*/
+        arbol.insertar("Leon");
         System.out.println("Recorriendo inorden:");
         arbol.inorden();
         System.out.println("Recorriendo postorden:");
@@ -43,6 +45,7 @@ public class Main extends Application {
         //System.out.println(arbol.existe("Claire")); // false
         //System.out.println(arbol.existe("Zelda")); // true
         System.out.println("------------------------------");
+
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.Lista();
         System.out.println("------------------------------");

@@ -24,6 +24,7 @@ class Biblioteca {
                 System.out.println( files[ i ].toString());
                 lector.readUsingScanner(files[i]);
 
+
             }
         }
     }
