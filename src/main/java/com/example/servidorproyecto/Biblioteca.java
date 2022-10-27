@@ -10,7 +10,7 @@ class Biblioteca {
     public void Lista() throws IOException {
         read_File lector = new read_File();
 
-        String path = "C:\\Users\\luisg\\OneDrive\\Documentos\\TEC\\2022\\Segundo semestre 2022\\Datos I\\Proyectos\\ServidorProyecto\\Biblioteca";
+        String path = "C:\\Users\\Gabriel\\IdeaProjects\\ServidorProyecto\\Biblioteca";
 
 
         String[] files = getFiles( path );
