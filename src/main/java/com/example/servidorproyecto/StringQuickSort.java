@@ -14,6 +14,10 @@ public class StringQuickSort {
             System.out.print(" ");
         }
     }
+    public void jiji(){
+
+    }
+
 
     void sort(String array[]) {
         if (array == null || array.length == 0) {

@@ -7,6 +7,19 @@ public class Radix {
 
     class RadixSort {
 
+        public void mex(){
+
+        }
+
+       public void order(){
+
+        }
+
+        public void hey(){
+
+        }
+
+
         // Using counting sort to sort the elements in the basis of significant places
         void countingSort(int array[], int size, int place) {
             int[] output = new int[size + 1];
