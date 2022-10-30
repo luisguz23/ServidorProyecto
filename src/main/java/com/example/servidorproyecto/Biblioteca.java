@@ -25,7 +25,7 @@ class Biblioteca {
             for ( int i = 0; i < size; i ++ ) {
 
                 System.out.println( files[ i ].toString());
-                lector.readUsingScanner(files[i]);
+                lector.readUsingScanner(files[i].toString());
                 //arbol.inorden();
                 //arbol.existe(conexion.message);*/
 

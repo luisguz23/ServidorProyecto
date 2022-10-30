@@ -2,6 +2,7 @@ package com.example.servidorproyecto;
 
 
 public class ArbolBinario {
+    Conexion conexion=new Conexion();
 
     //codigo tomado de: https://parzibyte.me/blog/2020/05/08/arbol-binario-java/#Busqueda_dentro_del_arbol
 
@@ -15,11 +16,11 @@ public class ArbolBinario {
     }
 
     private boolean existe(Nodo n, String busqueda) {
+
         if (n == null) {
             return false;
         }
         if (n.getDato().equals(busqueda)) {
-
             return true;
         } else if (busqueda.compareTo(n.getDato()) < 0) {
             return existe(n.getIzquierda(), busqueda);
