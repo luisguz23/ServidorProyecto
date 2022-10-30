@@ -25,11 +25,15 @@ public class Main extends Application {
         comu.iniciar();
         String message = comu.message;
         read_File lecto_txt= new read_File();
-        String dato_busqueda = lecto_txt.item;
+        String dato_busqueda = lecto_txt.dato;
 
         ArbolBinario arbol=new ArbolBinario();
+        Biblioteca biblioteca = new Biblioteca();
 
-        arbol.insertar("Luis");
+        System.out.println("------------------------------");
+        biblioteca.Lista();
+        System.out.println("------------------------------");
+        /*arbol.insertar("Luis");
         arbol.insertar("Chris");
         arbol.insertar("Zelda");
         arbol.insertar("Cuphead");
@@ -40,14 +44,14 @@ public class Main extends Application {
         arbol.postorden();
         System.out.println("Recorriendo preorden:");
         arbol.preorden();
+        System.out.println("------------------------------");
         System.out.println("Busqueda "+message+":");
-        System.out.println(arbol.existe(message)); // true
+        System.out.println(arbol.existe(message));*/
         //System.out.println(arbol.existe("Claire")); // false
         //System.out.println(arbol.existe("Zelda")); // true
-        System.out.println("------------------------------");
 
-        Biblioteca biblioteca = new Biblioteca();
-        biblioteca.Lista();
+
+
         System.out.println("------------------------------");
 
         launch();

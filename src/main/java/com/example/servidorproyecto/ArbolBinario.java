@@ -3,6 +3,8 @@ package com.example.servidorproyecto;
 
 public class ArbolBinario {
 
+    //codigo tomado de: https://parzibyte.me/blog/2020/05/08/arbol-binario-java/#Busqueda_dentro_del_arbol
+
     private Nodo raiz;
     public ArbolBinario() {
 
@@ -17,6 +19,7 @@ public class ArbolBinario {
             return false;
         }
         if (n.getDato().equals(busqueda)) {
+
             return true;
         } else if (busqueda.compareTo(n.getDato()) < 0) {
             return existe(n.getIzquierda(), busqueda);
@@ -29,8 +32,10 @@ public class ArbolBinario {
     public void insertar(String dato) {
         if (this.raiz == null) {
             this.raiz = new Nodo(dato);
+            //System.out.println("AGREGADO "+dato);
         } else {
             this.insertar(this.raiz, dato);
+            //System.out.println("AGREGADO "+dato);
         }
     }
 
@@ -61,8 +66,9 @@ public class ArbolBinario {
     private void inorden(Nodo n) {
         if (n != null) {
             inorden(n.getIzquierda());
-            n.imprimirDato();
+            //n.imprimirDato();
             inorden(n.getDerecha());
+            System.out.println(n.getDato());
         }
     }
 

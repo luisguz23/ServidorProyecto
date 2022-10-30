@@ -1,5 +1,5 @@
 package com.example.servidorproyecto;
-/*
+
 public class StringQuickSort {
     String names[];
     int length;
@@ -62,5 +62,5 @@ public class StringQuickSort {
         this.names[i] = this.names[j];
         this.names[j] = temp;
     }
-}*/
+}
 //Obtenido de https://stackoverflow.com/questions/29294982/using-quicksort-on-a-string-array

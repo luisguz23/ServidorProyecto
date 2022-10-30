@@ -10,7 +10,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
         public static void main(String args[]) throws IOException {
 
             //Loading an existing document
-            File file = new File("Biblioteca/Arte .pdf");
+            File file = new File("Biblioteca/Arte.pdf");
             PDDocument document = PDDocument.load(file);
 
             //Instantiate PDFTextStripper class

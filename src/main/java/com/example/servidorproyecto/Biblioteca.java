@@ -7,10 +7,13 @@ import java.util.List;
 
 class Biblioteca {
 
+    //codigo tomado de: https://es.stackoverflow.com/questions/17354/leer-todos-los-ficheros-de-una-carpeta
     public void Lista() throws IOException {
         read_File lector = new read_File();
+        ArbolBinario arbol = new ArbolBinario();
+        Conexion conexion = new Conexion();
 
-        String path = "C:\\Users\\Gabriel\\IdeaProjects\\ServidorProyecto\\Biblioteca";
+        String path = "C:\\Users\\luisg\\OneDrive\\Documentos\\TEC\\2022\\Segundo semestre 2022\\Datos I\\Proyectos\\ServidorProyecto\\Biblioteca";
 
 
         String[] files = getFiles( path );
@@ -23,6 +26,8 @@ class Biblioteca {
 
                 System.out.println( files[ i ].toString());
                 lector.readUsingScanner(files[i]);
+                //arbol.inorden();
+                //arbol.existe(conexion.message);*/
 
 
             }
