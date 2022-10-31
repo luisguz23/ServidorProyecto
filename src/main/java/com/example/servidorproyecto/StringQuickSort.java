@@ -1,44 +1,41 @@
 package com.example.servidorproyecto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringQuickSort {
-    String names[];
     int length;
 
-    public static void main(String[] args) {
-        StringQuickSort sorter = new StringQuickSort();
-        String words[] = {"Patar", "Peter", "Aaron", "Abril", "Baby", "Fernando", "Ian"}; // the strings need to be sorted are put inside this array
-        sorter.sort(words);
+    public List<String>names=new ArrayList<>();
 
-        for (String i : words) {
-            System.out.print(i);
-            System.out.print(" ");
-        }
-    }
+
+
     public void jiji(){
 
     }
 
 
-    void sort(String array[]) {
-        if (array == null || array.length == 0) {
+    void sort(List<String> array) {
+        if (array == null || array.size() == 0) {
             return;
         }
         this.names = array;
-        this.length = array.length;
+        this.length = array.size();
         quickSort(0, length - 1);
+        System.out.println("Feo"+names);
     }
 
     void quickSort(int lowerIndex, int higherIndex) {
         int i = lowerIndex;
         int j = higherIndex;
-        String pivot = this.names[lowerIndex + (higherIndex - lowerIndex) / 2];
+        String pivot = this.names.get(lowerIndex + (higherIndex - lowerIndex) / 2);
 
         while (i <= j) {
-            while (this.names[i].compareToIgnoreCase(pivot) < 0) {
+            while (this.names.get(i).compareToIgnoreCase(pivot) < 0) {
                 i++;
             }
 
-            while (this.names[j].compareToIgnoreCase(pivot) > 0) {
+            while (this.names.get(j).compareToIgnoreCase(pivot) > 0) {
                 j--;
             }
 
@@ -58,9 +55,9 @@ public class StringQuickSort {
     }
 
     void exchangeNames(int i, int j) {
-        String temp = this.names[i];
-        this.names[i] = this.names[j];
-        this.names[j] = temp;
+        String temp = this.names.get(i);
+        this.names.set(i, this.names.get(j));
+        this.names.set(j, temp);
     }
 }
 //Obtenido de https://stackoverflow.com/questions/29294982/using-quicksort-on-a-string-array

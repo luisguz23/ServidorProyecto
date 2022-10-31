@@ -8,8 +8,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,10 +20,12 @@ public class read_File {
     //tambien se utilizó codigo de: https://es.stackoverflow.com/questions/99086/como-separar-una-cadena-string-por-espacios
 
     public String dato;
+    public String lio;
+    public String lio2;
 
     // Method 1
     // To read the file using Scanner
-    public void readUsingScanner(String fileName,String message)
+    public void readUsingScanner(String fileName, String message)
             throws Exception {
 
         // Again,  creating Path class object in main()
@@ -33,10 +33,20 @@ public class read_File {
 
         List<String> listOfStrings
                 = new ArrayList<String>();
+        List<String> peter
+                = new ArrayList<String>();
+        peter.add("HelloWorld.txt");
+        peter.add("LaVidaesDura.pdf");
+        peter.add("lorem.txt");
+        peter.add("Fuck.txt");
+
+
 
         Conexion conexion = new Conexion();
         conexion.iniciar();
         ArbolBinario arbol = new ArbolBinario();
+        Biblioteca biblio= new Biblioteca();
+        StringQuickSort quick= new StringQuickSort();
 
         String item;
         //String message= conexion.message;
@@ -80,6 +90,8 @@ public class read_File {
                 }
                 String[] array
                         = listOfStrings.toArray(new String[0]);
+                String[] array2
+                        = peter.toArray(new String[0]);
 
                 // print each string in array
                 for (String eachString : array) {
@@ -96,6 +108,11 @@ public class read_File {
                             if (index3 > 0) {
                                 String NombreSolo = fileName.substring(index3 + 1);
                                 System.out.println("File Name: " + NombreSolo);
+                                quick.sort(peter);
+
+                                System.out.println();
+
+
 
                             } else {
                                 System.out.println("Estamos mamando");
@@ -108,11 +125,11 @@ public class read_File {
                     }
                 }
             } else if (Objects.equals(formato, "docx")) {
-                word(fileName);
+                //word(fileName);
                 System.out.println("es un archivo word");
 
             } else if (Objects.equals(formato, "pdf")) {
-                pdf(fileName);
+                pdf(fileName, message);
                 System.out.println("es un archivo pdf");
 
             } else {
@@ -120,14 +137,20 @@ public class read_File {
                 System.out.println(formato);
             }
         }
-        }
-    public void pdf(String filename) throws IOException {
+    }
+
+    public void pdf(String fileName, String message) throws IOException {
+        Conexion conexion = new Conexion();
+        conexion.iniciar();
+        ArbolBinario arbol = new ArbolBinario();
+
+        int cont = 0;
 
         List<String> listOfStrings
                 = new ArrayList<String>();
 
         //Loading an existing document
-        File file = new File(filename);
+        File file = new File(fileName);
         PDDocument document = PDDocument.load(file);
 
         //Instantiate PDFTextStripper class
@@ -136,9 +159,9 @@ public class read_File {
         //Retrieving text from PDF document
         String text = pdfStripper.getText(document);
         //System.out.println(text);
-        String[] palabras= text.split("[ . , ; ?!¡¿\'\"\\[\\]]+");
+        String[] palabras = text.split("[ . , ; ?!¡¿\'\"\\[\\]]+");
 
-        for (String item: palabras){
+        for (String item : palabras) {
             listOfStrings.add(item);
 
         }
@@ -150,14 +173,32 @@ public class read_File {
         for (String eachString : array) {
             String dato = eachString;
             System.out.println(dato);
-        }
+            arbol.insertar(eachString);
+            //arbol.inorden();
+            System.out.println("buscar: " + message);
+            System.out.println(arbol.existe(message));
+            if (arbol.existe(message) == true) {
+                cont = cont + 1;
+                if (cont == 1) {
+                    int index3 = fileName.lastIndexOf("\\");
+                    //System.out.println(fileName);
+                    if (index3 > 0) {
+                        String NombreSolo = fileName.substring(index3 + 1);
+                        System.out.println("File Name: " + NombreSolo);
+                        lio2=NombreSolo;
+
+                    } else {
+                        System.out.println("Estamos mamando");
+                    }
+
+                }
 
 
-        //Closing the document
-        document.close();
+                //Closing the document
+                document.close();
 
-    }
-    public void word(String filename)throws Exception {
+            }
+   /* public void word(String filename)throws Exception {
         XWPFDocument docx = new XWPFDocument(new FileInputStream(filename));
         List<String> listOfStrings
                 = new ArrayList<String>();
@@ -185,10 +226,9 @@ public class read_File {
 
 
 
+    }*/
+        }
+
+
     }
 }
-
-
-
-
-

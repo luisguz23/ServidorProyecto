@@ -30,6 +30,9 @@ class Biblioteca {
                 conexion.iniciar();
                 msg= conexion.message;
                 lector.readUsingScanner(files[i].toString(), conexion.message);
+
+
+
                 //System.out.println(msg);
 
                 //arbol.inorden();
