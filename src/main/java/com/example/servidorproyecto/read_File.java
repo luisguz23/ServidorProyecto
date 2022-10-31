@@ -17,66 +17,100 @@ public class read_File {
 
     // Method 1
     // To read the file using Scanner
-    public void readUsingScanner(String fileName)
+    public void readUsingScanner(String fileName,String message)
             throws IOException {
 
         // Again,  creating Path class object in main()
         // method
+
         List<String> listOfStrings
                 = new ArrayList<String>();
 
         Conexion conexion = new Conexion();
+        conexion.iniciar();
         ArbolBinario arbol = new ArbolBinario();
 
         String item;
-        String message= conexion.message;
+        //String message= conexion.message;
 
-        int cont = 0;
+        int index1 = fileName.lastIndexOf("\\");
+        //System.out.println(fileName);
+        if (index1 > 0) {
+            String NombreSolo1 = fileName.substring(index1 + 1);
+            //System.out.println("File Name: " + NombreSolo1);
 
-        // Creating Scanner class object to take input
-        Scanner scanner = new Scanner(new FileReader(fileName))
-                .useDelimiter("[ . , ; ?!¡¿\'\"\\[\\]]+");
+            int index2 = NombreSolo1.lastIndexOf(".");
+            String formato = null;
+            if (index2 > 0) {
+                formato = NombreSolo1.substring(index2 + 1);
+                //System.out.println("File Format:" + formato);
+
+            }
+            System.out.println(formato);
+
+            //Se llaman los diferentes metodos para parsear archivos
+            if ("txt" == "txt") {
+                int cont = 0;
+
+                // Creating Scanner class object to take input
+                Scanner scanner = new Scanner(new FileReader(fileName))
+                        .useDelimiter("[ . , ; ?!¡¿\'\"\\[\\]]+");
 
 
-        // Now reading file line by line
-        // using hasNextLine() method
-        while (scanner.hasNextLine()) {
+                // Now reading file line by line
+                // using hasNextLine() method
+                //System.out.println("Busqueda "+message);
 
-            // Processing each line
+                while (scanner.hasNextLine()) {
 
-            item = scanner.next();
+                    // Processing each line
 
-            listOfStrings.add(item);
+                    item = scanner.next();
 
-        }
-        String[] array
-                = listOfStrings.toArray(new String[0]);
+                    listOfStrings.add(item);
 
-        // print each string in array
-        for (String eachString : array) {
-            dato = eachString;
-            arbol.insertar(eachString);
-            //arbol.inorden();
-            System.out.println(arbol.existe("Hola"));
-            if (arbol.existe("Hola") == true) {
-                cont = cont + 1;
-                if (cont == 1) {
-                    int index = fileName.lastIndexOf("\\");
-                    //System.out.println(fileName);
-                    if (index > 0) {
-                        String NombreSolo = fileName.substring(index + 1);
-                        System.out.println("File Name: " + NombreSolo);
-                        //System.out.println("Funka?");
-                        //System.out.println(eachString);
-                    } else {
-                        System.out.println("Estamos mamando");
+                }
+                String[] array
+                        = listOfStrings.toArray(new String[0]);
+
+                // print each string in array
+                for (String eachString : array) {
+                    dato = eachString;
+                    arbol.insertar(eachString);
+                    //arbol.inorden();
+                    System.out.println("buscar: " + message);
+                    //System.out.println(arbol.existe(message));
+                    if (arbol.existe(message) == true) {
+                        cont = cont + 1;
+                        if (cont == 1) {
+                            int index3 = fileName.lastIndexOf("\\");
+                            //System.out.println(fileName);
+                            if (index3 > 0) {
+                                String NombreSolo = fileName.substring(index3 + 1);
+                                System.out.println("File Name: " + NombreSolo);
+
+                            } else {
+                                System.out.println("Estamos mamando");
+                            }
+                        }
+
+                        // close() method is used to close all the read
+                        // write connections
+                        scanner.close();
                     }
                 }
+            } else if (formato == "docx") {
+                System.out.println("es un archivo word");
 
-                // close() method is used to close all the read
-                // write connections
-                scanner.close();
+            } else if (formato == "pdf") {
+                System.out.println("es un archivo pdf");
+
+            } else {
+                System.out.println("No funka esta picha");
             }
         }
+        }
+
     }
-}
+
+

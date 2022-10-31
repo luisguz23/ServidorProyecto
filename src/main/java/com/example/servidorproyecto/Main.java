@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
@@ -22,7 +21,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException {
         Conexion comu= new Conexion();
-        comu.iniciar();
+        //comu.iniciar();
         String message = comu.message;
         read_File lecto_txt= new read_File();
         String dato_busqueda = lecto_txt.dato;
@@ -33,6 +32,8 @@ public class Main extends Application {
         System.out.println("------------------------------");
         biblioteca.Lista();
         System.out.println("------------------------------");
+        //System.out.println("Busqueda "+message);
+        //System.out.println(arbol.existe(message));
         /*arbol.insertar("Luis");
         arbol.insertar("Chris");
         arbol.insertar("Zelda");
