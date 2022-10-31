@@ -14,6 +14,10 @@ class Biblioteca {
         read_File lector = new read_File();
         ArbolBinario arbol = new ArbolBinario();
         Conexion conexion = new Conexion();
+        StringQuickSort quick= new StringQuickSort();
+
+        List<String> peter
+                = new ArrayList<String>();
 
         String path = "C:\\Users\\Gabriel\\IdeaProjects\\ServidorProyecto\\Biblioteca";
 
@@ -30,6 +34,10 @@ class Biblioteca {
                 conexion.iniciar();
                 msg= conexion.message;
                 lector.readUsingScanner(files[i].toString(), conexion.message);
+                peter.add(lector.readUsingScanner(files[i].toString(), conexion.message));
+                System.out.println(peter);
+                quick.sort(peter);
+
 
 
 
