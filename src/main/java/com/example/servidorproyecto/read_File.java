@@ -1,10 +1,18 @@
 package com.example.servidorproyecto;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 // Main class
@@ -18,7 +26,7 @@ public class read_File {
     // Method 1
     // To read the file using Scanner
     public void readUsingScanner(String fileName,String message)
-            throws IOException {
+            throws Exception {
 
         // Again,  creating Path class object in main()
         // method
@@ -49,7 +57,7 @@ public class read_File {
             System.out.println(formato);
 
             //Se llaman los diferentes metodos para parsear archivos
-            if ("txt" == "txt") {
+            if (Objects.equals(formato, "txt")) {
                 int cont = 0;
 
                 // Creating Scanner class object to take input
@@ -99,18 +107,88 @@ public class read_File {
                         scanner.close();
                     }
                 }
-            } else if (formato == "docx") {
+            } else if (Objects.equals(formato, "docx")) {
+                word(fileName);
                 System.out.println("es un archivo word");
 
-            } else if (formato == "pdf") {
+            } else if (Objects.equals(formato, "pdf")) {
+                pdf(fileName);
                 System.out.println("es un archivo pdf");
 
             } else {
                 System.out.println("No funka esta picha");
+                System.out.println(formato);
             }
         }
         }
+    public void pdf(String filename) throws IOException {
+
+        List<String> listOfStrings
+                = new ArrayList<String>();
+
+        //Loading an existing document
+        File file = new File(filename);
+        PDDocument document = PDDocument.load(file);
+
+        //Instantiate PDFTextStripper class
+        PDFTextStripper pdfStripper = new PDFTextStripper();
+
+        //Retrieving text from PDF document
+        String text = pdfStripper.getText(document);
+        //System.out.println(text);
+        String[] palabras= text.split("[ . , ; ?!¡¿\'\"\\[\\]]+");
+
+        for (String item: palabras){
+            listOfStrings.add(item);
+
+        }
+        //System.out.println(item);
+        String[] array
+                = listOfStrings.toArray(new String[0]);
+
+        // print each string in array
+        for (String eachString : array) {
+            String dato = eachString;
+            System.out.println(dato);
+        }
+
+
+        //Closing the document
+        document.close();
 
     }
+    public void word(String filename)throws Exception {
+        XWPFDocument docx = new XWPFDocument(new FileInputStream(filename));
+        List<String> listOfStrings
+                = new ArrayList<String>();
+
+        //using XWPFWordExtractor Class
+        XWPFWordExtractor we = new XWPFWordExtractor(docx);
+        //System.out.println(we.getText());
+
+        String prueba = we.getText().toString();
+        String[] p = prueba.split("[ . , ; ?!¡¿\'\"\\[\\]]+");
+        for (String item: p){
+            listOfStrings.add(item);
+
+        }
+        //System.out.println(item);
+        String[] array
+                = listOfStrings.toArray(new String[0]);
+
+        // print each string in array
+        for (String eachString : array) {
+            String dato = eachString;
+            System.out.println(dato);
+        }
+
+
+
+
+    }
+}
+
+
+
 
 

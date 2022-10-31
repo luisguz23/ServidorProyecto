@@ -19,7 +19,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Conexion comu= new Conexion();
         //comu.iniciar();
         String message = comu.message;
