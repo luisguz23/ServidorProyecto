@@ -142,7 +142,7 @@ public class read_File {
                     }
                 }
             } else if (Objects.equals(formato, "docx")) {
-                return word(fileName, message);
+                //return word(fileName, message);
                 //System.out.println("es un archivo word");
 
             } else if (Objects.equals(formato, "pdf")) {

@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * clase que establece la conexion con la clase conexion del cliente.
@@ -24,7 +26,7 @@ public class Conexion {
      *realiza conexion entre el cliente y el servidor
      */
     public void iniciar(){
-
+        StringQuickSort qsort= new StringQuickSort();
 
         try {
             server=new ServerSocket(puerto);
@@ -35,7 +37,12 @@ public class Conexion {
             message= entrada.readLine();
             //System.out.println(message);
             salida=new DataOutputStream(socket.getOutputStream());
-            salida.writeUTF("Adios Mundo");
+            List<String>prueba = new ArrayList<>();
+            prueba.add("Hola");
+            prueba.add("putos");
+            prueba.add("alv");
+            //salida.writeUTF("Adios Mundo");
+            salida.writeUTF(prueba.toString());
             socket.close();
         }catch (Exception e){}
     }

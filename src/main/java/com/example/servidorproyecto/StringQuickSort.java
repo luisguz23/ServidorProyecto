@@ -2,6 +2,7 @@ package com.example.servidorproyecto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Acomoda los archivos con el algoritmo Quicksort
@@ -34,6 +35,7 @@ public class StringQuickSort {
         this.names = array;
         this.length = array.size();
         quickSort(0, length - 1);
+        names.remove(null);
         System.out.println("Feo"+names);
     }
 
