@@ -39,7 +39,7 @@ public class Conexion {
             salida=new DataOutputStream(socket.getOutputStream());
             List<String>prueba = new ArrayList<>();
             prueba.add("Hola");
-            prueba.add("putos");
+            prueba.add("mundo");
             prueba.add("alv");
             //salida.writeUTF("Adios Mundo");
             salida.writeUTF(prueba.toString());
