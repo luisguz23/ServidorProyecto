@@ -3,6 +3,10 @@ package com.example.servidorproyecto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Acomoda los archivos con el algoritmo Quicksort
+ */
+
 public class StringQuickSort {
     int length;
 

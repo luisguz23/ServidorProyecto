@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * clase que establece la conexion con la clase conexion del cliente.
+ */
 public class Conexion {
     ServerSocket server;
     Socket socket;

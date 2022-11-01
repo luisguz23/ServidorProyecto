@@ -8,8 +8,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main extends Application {
+/**
+ * Inicio del server
+ */
 
+public class Main extends Application {
+    /**
+     * inicializa un fxml del server
+     * @param stage escenario cargado
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
@@ -18,6 +26,12 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * main se encarga de llamar las clases y metodos
+     * @param args no recibe
+     * @throws Exception
+     */
 
     public static void main(String[] args) throws Exception {
         Conexion comu= new Conexion();
