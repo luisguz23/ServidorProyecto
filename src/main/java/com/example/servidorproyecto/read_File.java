@@ -18,13 +18,23 @@ public class read_File {
 
     // codigo tomado de: https://es.acervolima.com/como-extraer-contenido-de-un-documento-de-texto-usando-java/#:~:text=Python%20JavaScript%20PHP-,¿Cómo%20extraer%20contenido%20de%20un%20documento%20de%20texto%20usando%20Java,leer%20el%20archivo%20de%20texto.
     //tambien se utilizó codigo de: https://es.stackoverflow.com/questions/99086/como-separar-una-cadena-string-por-espacios
-
+    /**
+     * dato es usado para recorrer
+     */
     public String dato;
-    public String lio;
-    public String lio2;
+    //public String lio;
+    //public String lio2;
 
     // Method 1
     // To read the file using Scanner
+
+    /**
+     * readUsingScanner es la encargada de parsear los documentos, llamar el arbol y ver si la palabra que se manda desde mensaje concuerda.
+     * @param fileName es usada como una lista de archivos
+     * @param message es el valor que se compara para ver si esta
+     * @return debe devolver un string, que es el nombre del archivo
+     * @throws Exception
+     */
     public String readUsingScanner(String fileName, String message)
             throws Exception {
 
@@ -46,7 +56,11 @@ public class read_File {
         ArbolBinario arbol = new ArbolBinario();
         Biblioteca biblio = new Biblioteca();
         StringQuickSort quick = new StringQuickSort();
-
+/**
+ * item es utilizado para recorrer
+ * NombreSolo es la variable para guardar el dato que se transfiere en el return
+ * index1 es usado para poder obtener el nombre
+ */
         String item;
         //String message= conexion.message;
         String NombreSolo = null;
@@ -144,6 +158,13 @@ public class read_File {
         return NombreSolo;
     }
 
+    /**
+     * metodo usado para leer pdf y parsearlos y realizar la comparacion, pero con pdf
+     * @param fileName el archivo que se esta leyendo en ese momento
+     * @param message lo que se va a comparar
+     * @return regresa un string que es el nombre del archivo
+     * @throws IOException
+     */
     public String pdf(String fileName, String message) throws IOException {
         Conexion conexion = new Conexion();
         conexion.iniciar();
@@ -208,6 +229,14 @@ public class read_File {
         }
         return NombreSolo;
     }
+
+    /**
+     * metodo utilizado para leer Docx, parsearlo y comparar si la palabra aparece
+     * @param fileName archivo que se lee en ese momento
+     * @param message lo que se compara
+     * @return regresa un string que es el nombre
+     * @throws Exception
+     */
 
     public String word(String fileName, String message) throws Exception {
         Conexion conexion = new Conexion();

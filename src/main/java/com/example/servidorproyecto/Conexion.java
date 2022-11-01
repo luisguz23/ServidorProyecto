@@ -12,6 +12,7 @@ public class Conexion {
     int puerto=9000;
     DataOutputStream salida;
     BufferedReader entrada;
+    Biblioteca lib= new Biblioteca();
     public String message;
 
     //Código tomado de: https://www.youtube.com/watch?v=tsr53-zO73o

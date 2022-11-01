@@ -1,24 +1,31 @@
 package com.example.servidorproyecto;
-/*
+
 import java.io.IOException;
 
 //Creacion del BubbleSort
 
 public class Bubble {
-    public void bubbleSort(int[] array) {
-        int temp = 0;
-        int n = array.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j < (n - i); j++) {
-                if (array[j - 1] > array[j]) {
-                    //swap elements
-                    temp = array[j - 1];
-                    array[j - 1] = array[j];
-                    array[j] = temp;
-                }
-            }
+        public static void bubbleSort(int[] arr) {
+            int n = arr.length;
+            for (int i = 0; i < n - 1; i++)
+                for (int j = 0; j < n - i - 1; j++)
+                    if (arr[j] > arr[j + 1]) {
+                        //  swap arr[j+1] and arr[j]
+                        long temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = (int) temp;
+                    }
         }
-    }
+        private void printArray(int arr[])
+        {
+            int n = arr.length;
+            for (int i = 0; i < n; ++i)
+                System.out.print(arr[i] + " ");
+            System.out.println();
+        }
+
+
+
     void eyou(){
 
     }
@@ -28,4 +35,4 @@ public class Bubble {
     void epic(){
 
     }
-}*/
+}
