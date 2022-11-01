@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * se utiliza para cargar rutas y pasar archivos a los arboles.
  */
@@ -44,6 +45,8 @@ class Biblioteca {
                 msg= conexion.message;
                 lector.readUsingScanner(files[i].toString(), conexion.message);
                 peter.add(lector.readUsingScanner(files[i].toString(), conexion.message));
+
+
                 System.out.println(peter);
                 //quick.sort(peter);
 

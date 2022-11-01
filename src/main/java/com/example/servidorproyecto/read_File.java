@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * LEE LOS TIPOS DE ARCHIVO
+ */
 // Main class
 public class read_File {
 
@@ -279,7 +282,7 @@ public class read_File {
                     int index3 = fileName.lastIndexOf("\\");
                     //System.out.println(fileName);
                     if (index3 > 0) {
-                        NombreSolo = fileName.substring(index3 + 1);
+                        NombreSolo = fileName.substring(index3 + 1);;
 
                         //System.out.println("File Name: " + NombreSolo);
 
